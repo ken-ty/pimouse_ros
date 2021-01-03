@@ -1,7 +1,8 @@
 [![Build Status](https://travis-ci.org/kentokura/raspimouse_ros.svg?branch=master)](https://travis-ci.org/kentokura/raspimouse_ros)
 # pimouse_ros
 
-fxck.pyは、ROSを用いて、使用しているラズパイのキャラクタデバイスに指定した文字を上書きします。  
+fxck.pyは、ROSを用いて、使用しているラズパイのsdカードに指定した文字を上書きします。 
+大量の文字を上書きすることで、SDカードのもうみたくないデータとおさらば出来ます。
 
 ## 環境設定
 - Raspberry Pi 3 Model B
@@ -26,7 +27,7 @@ roslaunch pimouse_ros test.launch
 ```
 その後、/dev/zeroをトピックで送る。
 ```
-rostopic pub -1 '/buzzer' std_msgs/UInt16 "送りたい文字"
+rostopic pub -1 '/buzzer' std_msgs/UInt16 "送りたい文字列"
 ```
 
  
