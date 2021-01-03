@@ -25,7 +25,7 @@ rosrun pimouse_ros fxck.py
 ln -s fxck.py buzzer.py
 roslaunch pimouse_ros test.launch
 ```
-その後、/dev/zeroをトピックで送る。
+その後、上書きしたい文字列をトピックで送る。（/dev/zeroを用いると0で埋め尽くせる)
 ```
 rostopic pub -1 '/buzzer' std_msgs/UInt16 "送りたい文字列"
 ```
