@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/kentokura/raspimouse_ros.svg?branch=master)](https://travis-ci.org/kentokura/raspimouse_ros)
 # pimouse_ros
 
-ROSを用いて、ブザーを鳴らします。
+fxck.pyは、ROSを用いて、使用しているラズパイのキャラクタデバイスに指定した文字を上書きします。  
 
 ## 環境設定
 - Raspberry Pi 3 Model B
@@ -19,12 +19,14 @@ roscore
 もう一つ端末を立ち上げ、以下を実行
 ```
 roscd pimouse_ros/scripts/
-chtmod +x buzzer1.py
-rosrun pimouse_ros buzzer1.py
+chtmod +x fxck.py
+rosrun pimouse_ros fxck.py
+ln -s fxck.py buzzer.py
+roslaunch pimouse_ros test.launch
 ```
-動作は、以下を実行したときにbuzzer が存在していることで確認できる。
+その後、/dev/zeroをトピックで送る。
 ```
-rosnode list
+rostopic pub -1 '/buzzer' std_msgs/UInt16 "送りたい文字"
 ```
 
  
