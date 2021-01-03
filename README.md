@@ -14,13 +14,18 @@ ROSを用いて、ブザーを鳴らします。
 ## 使い方
 端末を立ち上げ以下を実行
 ```
-source ~/.bashrc
+roscore
 ```
-
+もう一つ端末を立ち上げ、以下を実行
 ```
-
+roscd pimouse_ros/scripts/
+chtmod +x buzzer1.py
+rosrun pimouse_ros buzzer1.py
 ```
-
+動作は、以下を実行したときにbuzzer が存在していることで確認できる。
+```
+rosnode list
+```
 
  
 -----
